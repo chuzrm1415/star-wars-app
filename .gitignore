@@ -1,0 +1,7 @@
+##### Apache Maven #####
+target/
+
+##### VS Code #####
+.classpath
+.project
+.settings/
