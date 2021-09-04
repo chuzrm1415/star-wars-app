@@ -8,7 +8,7 @@ import retrofit2.http.QueryMap;
 import java.util.Map;
 
 
-public interface IStarWarsResourse {
+public interface IStarWarsResource {
 
     @GET("people/{id}")
     Call<StarWarsReport> getPeople(@QueryMap Map<String, String> options);

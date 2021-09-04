@@ -20,6 +20,27 @@ public class StarWarsReport {
     private String url;
 
 
+    @Override
+    public String toString() {
+        return "StarWarsReport{" +
+                "Name = '" + name + '\'' +
+                "Rotation Period = '" + rotation_period+ '\'' +
+                "Orbital Period = '" + orbital_period + '\'' +
+                "Diameter = '" + diameter + '\'' +
+                "Climate = '" + climate + '\'' +
+                "Gravity = '" + gravity + '\'' +
+                "Terrain = '" + terrain + '\'' +
+                "Surface Water = '" + surface_water+ '\'' +
+                "Population = '" + population + '\'' +
+                "Residents = '" + Arrays.toString(residents) + '\'' +
+                "Films = '" + Arrays.toString(films) + '\'' +
+                "Created = '" + created + '\'' +
+                "Edited = '" + edited + '\'' +
+                "URL = '" + url +
+                '}';
+    }
+
+
     /**
      * @return String return the name
      */

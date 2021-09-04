@@ -4,12 +4,12 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-import TEC.DB.STARWARS.Connection.IStarWarsResourse;
+import TEC.DB.STARWARS.Connection.IStarWarsResource;
 
 public class ApplicationContext {
 
     private final static String BASE_URL = "https://swapi.dev/api/planets/";
-    private IStarWarsResourse starWarsResourse;
+    private IStarWarsResource starWarsResourse;
 
 
     public ApplicationContext() {}
@@ -22,13 +22,13 @@ public class ApplicationContext {
 
     }
 
-    private static IStarWarsResourse init_StarWarsResource() {
+    private static IStarWarsResource init_StarWarsResource() {
         Retrofit retrofit  = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-        return retrofit.create(IStarWarsResourse.class);
+        return retrofit.create(IStarWarsResource.class);
     }
 
     
