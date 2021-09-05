@@ -29,5 +29,19 @@ public class StarWarsAPI extends BaseStarWars<StarWarsReport> {
     }
 
     @Override
-    public StarWarsReport byPlanet(String planetID) {}
+    public StarWarsReport byPlanet(String planetID) {
+        try {
+            var options = this.queryStringOptions(planetID);
+            Call<StarWarsReport> starWarsReportCall = this.starWarsResource.get(options);
+            StarWarsReport starWarsReport = starWarsReportCall.execute().body();
+            return this.fromProviderReport(starWarsReport);
+        } catch (Exception e) {
+            throw new RuntimeException("Error calling the remote StarWars provider", e);
+        }
+    }
+
+
+    private Map<String, String> queryStringOptions(String _id) {
+        return Map.of();
+    }
 }
