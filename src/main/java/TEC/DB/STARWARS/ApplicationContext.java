@@ -5,6 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 import TEC.DB.STARWARS.Connection.IStarWarsResource;
+import TEC.DB.STARWARS.Provider.IStarWarsProvider;
 
 public class ApplicationContext {
 
@@ -29,6 +30,11 @@ public class ApplicationContext {
             .build();
 
         return retrofit.create(IStarWarsResource.class);
+    }
+
+
+    private static StarWarsReport init_StarWarsReport(IStarWarsProvider starWarsProvider) {
+        return new StarWarsReport(starWarsProvider);
     }
 
     

@@ -1,12 +1,10 @@
 package TEC.DB.STARWARS.Connection;
 
-import TEC.DB.STARWARS.Provider.BaseStarWars;
-import TEC.DB.STARWARS.StarWarsObj.StarWarsReport;
-import retrofit2.Call;
-import java.util.Map;
+import TEC.DB.STARWARS.StarWarsObj.*;
+import java.util.Optional;
 
 
-public class StarWarsAPI extends BaseStarWars<StarWarsReport> {
+public class StarWarsAPI {
 
     private IStarWarsResource starWarsResource;
     
@@ -16,32 +14,24 @@ public class StarWarsAPI extends BaseStarWars<StarWarsReport> {
     }
 
 
-    @Override
-    public StarWarsReport byPeople(String peopleID) {
+    //@Override
+    public Optional<People> byPeople(String peopleID) {
         try {
-            var options = this.queryStringOptions(peopleID);
-            Call<StarWarsReport> starWarsReportCall = this.starWarsResource.get(options);
-            StarWarsReport starWarsReport = starWarsReportCall.execute().body();
-            return this.fromProviderReport(starWarsReport);
+            return Optional.of(this.starWarsResource.getPeople(peopleID).execute().body());
         } catch (Exception e) {
             throw new RuntimeException("Error calling the remote StarWars provider", e);
         }
+        //return Optional.empty();
     }
 
-    @Override
-    public StarWarsReport byPlanet(String planetID) {
+    //@Override
+    public Optional<Planet> byPlanet(String planetID) {
         try {
-            var options = this.queryStringOptions(planetID);
-            Call<StarWarsReport> starWarsReportCall = this.starWarsResource.get(options);
-            StarWarsReport starWarsReport = starWarsReportCall.execute().body();
-            return this.fromProviderReport(starWarsReport);
+            return Optional.of(this.starWarsResource.getPlanet(planetID).execute().body());
         } catch (Exception e) {
             throw new RuntimeException("Error calling the remote StarWars provider", e);
         }
+        //return Optional.empty();
     }
 
-
-    private Map<String, String> queryStringOptions(String _id) {
-        return Map.of();
-    }
 }

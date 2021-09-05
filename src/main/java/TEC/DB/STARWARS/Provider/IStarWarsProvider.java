@@ -1,9 +1,9 @@
 package TEC.DB.STARWARS.Provider;
 
-import TEC.DB.STARWARS.StarWarsObj.StarWarsReport;
+import TEC.DB.STARWARS.StarWarsObj.*;
 
 public interface IStarWarsProvider {
     
-    StarWarsReport byPeople(String peopleID);
-    StarWarsReport byPlanet(String planetID);
+    People byPeople(String peopleID);
+    Planet byPlanet(String planetID);
 }
