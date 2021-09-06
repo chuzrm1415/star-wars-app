@@ -5,7 +5,6 @@ import TEC.DB.STARWARS.StarWarsObj.*;
 import java.util.Optional;
 
 import TEC.DB.STARWARS.Connection.StarWarsAPI;
-import TEC.DB.STARWARS.Provider.*;
 
 public class StarWarsReport {
 

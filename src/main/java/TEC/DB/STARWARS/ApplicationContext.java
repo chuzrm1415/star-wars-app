@@ -2,11 +2,8 @@ package TEC.DB.STARWARS;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-
 import TEC.DB.STARWARS.Connection.IStarWarsResource;
-import TEC.DB.STARWARS.Connection.StarWarsAPI;
-import TEC.DB.STARWARS.Provider.IStarWarsProvider;
+
 
 public class ApplicationContext {
 
