@@ -5,19 +5,26 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 import TEC.DB.STARWARS.Connection.IStarWarsResource;
+import TEC.DB.STARWARS.Connection.StarWarsAPI;
 import TEC.DB.STARWARS.Provider.IStarWarsProvider;
 
 public class ApplicationContext {
 
-    private final static String BASE_URL = "https://swapi.dev/api/planets/";
-    private IStarWarsResource starWarsResourse;
+    private final static String BASE_URL = "https://swapi.dev/api/";
+    private IStarWarsResource starWarsResource;
+    private StarWarsReport starWarsReport;
 
 
     public ApplicationContext() {}
 
+    public StarWarsReport getStarWarsReport() {return this.starWarsReport;}
+
     public static ApplicationContext init() {
         ApplicationContext applicationcontext = new ApplicationContext();
-        applicationcontext.starWarsResourse = init_StarWarsResource();
+        applicationcontext.starWarsResource = init_StarWarsResource();
+        applicationcontext.starWarsReport = new StarWarsReport();
+
+
 
         return applicationcontext;
 
@@ -31,12 +38,4 @@ public class ApplicationContext {
 
         return retrofit.create(IStarWarsResource.class);
     }
-
-
-    private static StarWarsReport init_StarWarsReport(IStarWarsProvider starWarsProvider) {
-        return new StarWarsReport(starWarsProvider);
-    }
-
-    
-    
-}
+}   

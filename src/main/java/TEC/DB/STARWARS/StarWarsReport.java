@@ -1,23 +1,25 @@
 package TEC.DB.STARWARS;
 
 import TEC.DB.STARWARS.StarWarsObj.*;
+
+import java.util.Optional;
+
+import TEC.DB.STARWARS.Connection.StarWarsAPI;
 import TEC.DB.STARWARS.Provider.*;
 
 public class StarWarsReport {
 
-    private IStarWarsProvider starWarsProvider;
+    private StarWarsAPI starWarsApi;
 
-    public StarWarsReport(IStarWarsProvider starWarsProvider) {
-        this.starWarsProvider = starWarsProvider;
-    }
+    public StarWarsReport() { }
     
-    public People getByPeople(String peopleID) {
-        var report = this.starWarsProvider.byPeople(peopleID);
+    public Optional<People> getByPeople(String peopleID) {
+        var report = this.starWarsApi.byPeople(peopleID);
         return report;
     }
 
-    public Planet getByPlanet(String planetID) {
-        var report = this.starWarsProvider.byPlanet(planetID);
+    public Optional<Planet> getByPlanet(String planetID) {
+        var report = this.starWarsApi.byPlanet(planetID);
         return report;
     }
 }
