@@ -1,10 +1,10 @@
 package TEC.DB.STARWARS.Connection;
 
+import TEC.DB.STARWARS.Provider.BaseStarWarsProvider;
 import TEC.DB.STARWARS.StarWarsObj.*;
-import java.util.Optional;
 
 
-public class StarWarsAPI {
+public class StarWarsAPI extends BaseStarWarsProvider {
 
     private IStarWarsResource starWarsResource;
     
@@ -14,21 +14,21 @@ public class StarWarsAPI {
     }
 
 
-    //@Override
-    public Optional<People> byPeople(String peopleID) {
+    @Override
+    public People byPeople(String peopleID) {
         try {
             retrofit2.Call<People> peopleCall = this.starWarsResource.getPeople(peopleID);
             People peopleReport = peopleCall.execute().body();
-            return Optional.of(peopleReport);
+            return peopleReport;
         } catch (Exception e) {
             throw new RuntimeException("Error calling the remote StarWars provider", e);
         }
     }
 
-    //@Override
-    public Optional<Planet> byPlanet(String planetID) {
+    @Override
+    public Planet byPlanet(String planetID) {
         try {
-            return Optional.of(this.starWarsResource.getPlanet(planetID).execute().body());
+            return this.starWarsResource.getPlanet(planetID).execute().body();
         } catch (Exception e) {
             throw new RuntimeException("Error calling the remote StarWars provider", e);
         }
