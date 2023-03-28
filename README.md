@@ -26,7 +26,7 @@ mvn exec:java -Dexec.args="planet 1"
 ```
 
 
-######NOTA: Cambie el numero de objeto a consultar.
+#####NOTA: Cambie el numero de objeto a consultar.
 
 
 ## Evaluacion
